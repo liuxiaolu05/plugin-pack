@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="Number.js"></script>
+<script>
+    function parseDate(dateString, format){
+        var date = new Date();
+        date.setHours(0);
+        date.setMinutes(0);
+        date.setSeconds(0);
+        date.setMilliseconds(0);
+        var dateMap = {
+            y: "FullYear",
+            Y: "FullYear",
+            m: "Month",
+            M: "Month",
+            d: "Date",
+            D: "Date",
+            h: "Hours",
+            H: "Hours",
+            i: "Minutes",
+            I: "Minutes",
+            s: "Seconds",
+            S: "Seconds",
+        }, charts = "", char1, char2, mode;
+        for(var i = 0, l = format.length; i < l; i++){
+            char1 = format.charAt(i);
+            char2 || (char2 = char1);
+            // 只匹配设定的模式
+            if(dateMap[char1]){
+                // 模式切换了，比如从y变成m，设置日期的y，然后模式转到m，开始下一轮匹配
+                if(char1 != char2){
+                    if(mode = dateMap[char2]){
+                        date["set" + mode](mode == "Month" ? charts-1 : charts);
+                        charts = "";
+                    }
+                }
+                charts += dateString.charAt(i);
+                char2 = char1;
+            }
+        }
+        if(charts){
+            date["set" + dateMap[char1]](charts);
+        }
+        return date;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+定制jquery插件
+
+jquery.dom.js
+只包含所有的dom操作
+
+jquery.common.js
+包含jquery.dom.js的所有功能、事件操作、样式操作、定位及大小获取
+
+jquery.more.js
+包含jquery.common.js的所有功能、动画模块
+
+
+
+
+模块说明：
+core：核心模块，必须
+selector：选择器模块，必须
+
+manipulation：dom节点操作
+    text、html、empty、replaceWith、replaceAll
+    append、prepend、before、after
+    appendTo、prependTo、insertBefore、insertAfter
+    clone、detach、remove
+
+
+traversing：dom节点之间的关系，
+    has、closest、index、add、addBack
+    parent、parents、parentsUntil
+    next、prev、nextAll、prevAll、nextUntil、prevUntil
+    siblings、children、contents
+
+core/ready
+
+core/data
+    data、hasData、removeData
+
+attributes
+
+event
+
+css
+
+offset
+
+dimensions：元素的盒模型大小
+    width、height、innerWidth、innerHeight、outerWidth、outerHeight
+
+deprecated：过时的api
+    bind、unbind、delegate、uundelegate、size、addSelf
